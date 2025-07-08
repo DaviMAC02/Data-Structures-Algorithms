@@ -8,11 +8,13 @@ class Node:
 
 class LinkedList:
   def __init__(self):
+    self.size = 0
     self.head = None
   
   # O(n) - trasverse the entire list
   def append(self, data):
     if not self.head:
+      self.size += 1
       self.head = Node(data)
       return
     
@@ -21,6 +23,8 @@ class LinkedList:
       current_node = current_node.next
     
     current_node.next = Node(data)
+    self.size += 1
+
   
   # O(n) - trasverse the entire list
   def delete(self, index):
@@ -33,10 +37,12 @@ class LinkedList:
     
     while current_node:
       if current_index == index and index == 0:
+        self.size -= 1
         self.head = current_node.next
         return
 
       if current_index == index:
+        self.size -= 1
         previous_node.next = current_node.next
         return
       previous_node = current_node
@@ -93,45 +99,6 @@ class LinkedList:
       
     self.head = previous_node
     
-  
-
-# Create a new singly linked list
-ll = LinkedList()
-
-# Append elements
-ll.append(10)
-ll.append(20)
-ll.append(30)
-ll.append(40)
-
-# Display the list
-print("Initial list:")
-ll.display()  # Output: 10, 20, 30, 40
-
-# Find a value by index
-print("\nElement at index 2:", ll.find(2))  # Output: 30
-
-# Delete the element at index 1 (value 20)
-ll.delete(1)
-print("\nAfter deleting index 1:")
-ll.display()  # Output: 10, 30, 40
-
-# Reverse the list
-ll.reverse()
-print("\nAfter reversing:")
-ll.display()  # Output: 40, 30, 10
-
-# Delete head
-ll.delete(0)
-print("\nAfter deleting head (was 40):")
-ll.display()  # Output: 30, 10
-
-# Try deleting tail
-ll.delete(1)
-print("\nAfter deleting tail (was 10):")
-ll.display()  # Output: 30
-
-
 
 class DoubleNode:
   def __init__(self, data):
@@ -220,44 +187,4 @@ class DoubleLinkedList:
     self.head = reversed_list.head
     self.tail = reversed_list.tail
 
-
-
-# Create a new doubly linked list
-dll = DoubleLinkedList()
-
-# Append some elements
-dll.append(10)
-dll.append(20)
-dll.append(30)
-dll.append(40)
-
-# Display the list
-print("Initial list:")
-dll.display()  # Output: 10, 20, 30, 40
-
-# Find a value by index
-print("\nElement at index 2:", dll.find(2))  # Output: 30
-
-# Delete the element at index 1 (value 20)
-dll.delete(1)
-print("\nAfter deleting index 1:")
-dll.display()  # Output: 10, 30, 40
-
-# Reverse the list
-dll.reverse()
-print("\nAfter reversing:")
-dll.display()  # Output: 40, 30, 10
-
-# Try deleting head
-dll.delete(0)
-print("\nAfter deleting head (now 40):")
-dll.display()  # Output: 30, 10
-
-# Try deleting tail
-dll.delete(1)
-print("\nAfter deleting tail (now 10):")
-dll.display()  # Output: 30
-
-  
-    
 

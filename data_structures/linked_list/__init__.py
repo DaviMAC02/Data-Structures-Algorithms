@@ -1,1 +1,1 @@
-from linked_list.main import LinkedList, DoubleLinkedList
+from data_structures.linked_list.main import LinkedList, DoubleLinkedList

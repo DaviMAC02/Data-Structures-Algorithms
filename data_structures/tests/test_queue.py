@@ -1,4 +1,4 @@
-from queues.main import ArrayQueue, LinkedListQueue
+from data_structures.queues.main import ArrayQueue, LinkedListQueue
 
 def test_array_queue_operations():
     q = ArrayQueue()

@@ -1,4 +1,4 @@
-from linked_list.main import LinkedList
+from data_structures.linked_list.main import LinkedList
 
 class ArrayQueue:
   def __init__(self):
